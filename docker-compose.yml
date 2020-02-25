@@ -1,0 +1,24 @@
+version: '3'
+services:
+    forex-fun:
+        build: ./forex-fun
+        #command: sh -c "npm install && npm start"
+        environment:
+        - NODE_ENV=development
+        ports:
+        - '4200:4200'
+        #working_dir: /forex/forex-fun
+        #volumes:
+        #- ./forex-fun:/forex/forex-fun:cached
+    
+    forex-node:
+        build: ./forex-node
+        command: sh -c "npm install && npm run start:watch"
+        environment:
+            - NODE_ENV=development
+            - PORT=5433
+        ports:
+            - '5433:5433'
+        working_dir: /forex/forex-node
+        volumes:
+            - ./forex-node:/forex/forex-node:cached
