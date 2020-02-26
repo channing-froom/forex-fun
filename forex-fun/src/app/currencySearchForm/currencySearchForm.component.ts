@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICurrencyRate, ICurrencyExchangeDto } from '../../../../common/models/dto/ICurrencyDto';
+import { ICurrencyRate, ICurrencyExchangeDto } from '../../models/ICurrencyDto';
 import { CurrencyService } from 'src/services/currency.service';
 
 @Component({

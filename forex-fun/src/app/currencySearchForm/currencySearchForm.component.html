@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row currency-search-form">
   <div class="col-5">
     <h2 class="mb-4 font-weight-light">Currency Lookup</h2>
 
@@ -22,12 +22,12 @@
         </div>
 
         <div *ngSwitchCase="false">
-          <h2 class="mb-4 font-weight-light">{{currency ? currency.iso : "NA"}}</h2>
+          <h2 class="mb-4 font-weight-light iso">{{currency ? currency.iso : "NA"}}</h2>
           <div>
-            <span class="display-4 font-weight-light">{{currency ? currency.exchange : "0.000"}}</span>
+            <span class="display-4 font-weight-light exchange">{{currency ? currency.exchange : "0.000"}}</span>
           </div>
           <div>
-            <span class="font-weight-light">{{base ? base : "NA"}}</span> <span class="display-4 font-weight-light">{{currency ? currency.converted : "0.000"}}</span>
+            <span class="font-weight-light base">{{base ? base : "NA"}}</span> <span class="display-4 font-weight-light converted">{{currency ? currency.converted : "0.000"}}</span>
           </div>
         </div>
 

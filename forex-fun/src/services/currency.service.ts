@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios';
-import { ICurrencyExchangeDto } from '../../../common/models/dto/ICurrencyDto';
 import { Injectable } from '@angular/core';
 import { error } from '@angular/compiler/src/util';
 
@@ -13,12 +12,22 @@ export class CurrencyService {
 
   constructor() {}
 
+  /**
+   * Request a single currency match from the API
+   *
+   * @param symbol
+   */
   public getCurrency(symbol: string) {
     // todo move api urls to config
     return axios.get(`${this.apiUrl}/${this.baseCurrency}/values/${symbol}`)
       .then(res => res.data);
   }
 
+  /**
+   * Request multiple currencies from the API
+   *
+   * @param symbols
+   */
   public getCurrencies(symbols: string[] = []) {
     if (symbols.length == 0) {
       throw error('No symbols defined');

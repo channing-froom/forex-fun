@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ICurrencyRate } from '../../../../common/models/dto/ICurrencyDto';
+import { ICurrencyRate } from '../../models/ICurrencyDto';
 
 @Component({
   selector: 'app-currencyCard',

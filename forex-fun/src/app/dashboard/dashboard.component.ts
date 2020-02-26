@@ -1,4 +1,4 @@
-import { ICurrencyExchangeDto } from '../../../../common/models/dto/ICurrencyDto';
+import { ICurrencyExchangeDto } from '../../models/ICurrencyDto';
 import { CurrencyService } from './../../services/currency.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,14 +15,19 @@ export class DashboardComponent implements OnInit {
   constructor(private currencyService: CurrencyService) { }
 
   getDefaults() {
+    this.loading = true;
     let self = this; // TODO should be using bind
 
     this.currencyService.getCurrencies(["USD", "EUR", "AUD"])
       .then((res: ICurrencyExchangeDto) => {
         self.currencyList = res;
-        self.loading = false;
       })
-      .catch(er => {console.log(er)});
+      .catch(er => {
+        console.log(er)
+      })
+      .finally(() => {
+        self.loading = false
+      });
   }
 
   ngOnInit() {

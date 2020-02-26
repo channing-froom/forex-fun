@@ -8,7 +8,6 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache app dependencies
 COPY package*.json /app/
 RUN npm install
-RUN ls -la
 
 # install angular cli
 RUN npm install -g @angular/cli@9.0.3
@@ -17,4 +16,5 @@ RUN npm install -g @angular/cli@9.0.3
 COPY . /app
 
 # start app
+# we not using production here because it takes too much time for addional setup
 CMD ng serve --host 0.0.0.0
