@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-5">
+    <h2 class="mb-4 font-weight-light">Currency Lookup</h2>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control form-control-lg mr-2" type="text" name="query" placeholder="eg EUR, USD ..." [(ngModel)]="query">
+      <button type="button" class="btn btn-primary btn-lg theme--button-default" (click)="searchCurrency()" >Search</button>
+    </form>
+
+    <div class="font-weight-light p-3 mb-2 bg-danger text-white my-3" *ngIf="errorMessage" >{{errorMessage}}</div>
+  </div>
+
+  <div class="col-7">
+    <div class="row" [ngSwitch]="loading">
+
+
+      <div class="col-12 text-right" >
+        <div class="d-flex justify-content-center py-5" *ngSwitchCase="true">
+          <div class="spinner-grow text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="false">
+          <h2 class="mb-4 font-weight-light">{{currency ? currency.iso : "NA"}}</h2>
+          <div>
+            <span class="display-4 font-weight-light">{{currency ? currency.exchange : "0.000"}}</span>
+          </div>
+          <div>
+            <span class="font-weight-light">{{base ? base : "NA"}}</span> <span class="display-4 font-weight-light">{{currency ? currency.converted : "0.000"}}</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

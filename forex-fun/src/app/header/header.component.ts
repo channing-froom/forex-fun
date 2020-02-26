@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  currencyOptions: string[] = [
+    'USA',
+    'EUR'
+  ];
+
   constructor() { }
 
   ngOnInit() {

@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { FooterComponent } from './footer/footer.component';
+import { CurrencyCardComponent } from './currencyCard/currencyCard.component';
+import { CurrencySearchFormComponent } from './currencySearchForm/currencySearchForm.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
    declarations: [
@@ -14,11 +17,14 @@ import { FooterComponent } from './footer/footer.component';
       HeaderComponent,
       DashboardComponent,
       CurrencyComponent,
-      FooterComponent
+      FooterComponent,
+      CurrencyCardComponent,
+      CurrencySearchFormComponent
    ],
    imports: [
       BrowserModule,
-      AppRoutingModule
+      AppRoutingModule,
+      FormsModule
    ],
    providers: [],
    bootstrap: [

@@ -24,7 +24,7 @@ export default class CurrencyService {
                 return res.data;
             })
             .catch((res) => {
-                // todo manage errors
+                throw "hello world"
             });
     }
 
@@ -72,8 +72,8 @@ export default class CurrencyService {
 
             return {
                 iso: key as string,
-                exchange: value,
-                converted: CurrencyService.CalculateBaseFromExchange(value)
+                exchange: Number(value.toFixed(3)),
+                converted: Number((CurrencyService.CalculateBaseFromExchange(value)).toFixed(3))
             };
         });
 

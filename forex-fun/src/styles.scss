@@ -1,2 +1,25 @@
 // import bootstrap styles here, in a real app we would only import the scss files that we want and not the whole library.
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  height: 100%;
+  background-image: linear-gradient(to right bottom, #2c3e50, #35556a, #3c6d83, #43879a, #4ca1af);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.theme--background-default {
+  background-image: linear-gradient(to right bottom, #2c3e50, #35556a, #3c6d83, #43879a, #4ca1af);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.theme--button-default {
+  background: #38B892 !important;
+  border: 1px solid #008F92 !important;
+}
+
+.theme--button-default:hover {
+  border: #64FDCF !important;
+}
+

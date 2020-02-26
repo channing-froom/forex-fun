@@ -26,7 +26,9 @@ export default class CurrencyController {
                 symbols
             );
         } catch (e) {
+            console.log('there was a error');
 
+            return {error: "something went wrong"}
         }
     }
 }

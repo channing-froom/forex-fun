@@ -1,5 +1,29 @@
+<div class="container-fluid theme--background-default text-light">
+  <div class="container py-5">
+    <app-currencySearchForm></app-currencySearchForm>
+  </div>
+
+</div>
+
 <div class="container">
-  <h2>dashboard</h2>
+  <div class="my-5" [ngSwitch]="loading">
+    <div class="d-flex justify-content-center py-5" *ngSwitchCase="true">
+      <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="false">
+      <h3 class="text-muted mb-3 font-weight-light">Default Currencies</h3>
+      <div class="row" *ngIf="currencyList">
+        <div class="col-4"  *ngFor="let currency of currencyList.rates" >
+          <app-currencyCard [currency]="currency" [base]="currencyList.base"></app-currencyCard>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 
   <p>
     Lorem ipsum dolor sit amet, quando labore salutatus quo in, inermis principes ei vel. Alii meis saepe quo ea, ad prima nullam perfecto eum. Ut aeterno reformidans eam. Ei persius vivendo prodesset ius.

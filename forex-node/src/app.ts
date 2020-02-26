@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser";
 import "reflect-metadata";
 import { useExpressServer } from "routing-controllers";
 import * as path from 'path';
+let cors = require('cors');
 
 // Route imports
 import indexRouter from './routes/index';
@@ -14,6 +15,8 @@ var logger = require('morgan');
 var app = express();
 
 app.use(logger('dev'));
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
