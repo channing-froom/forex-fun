@@ -5,6 +5,7 @@ module.exports = {
   entry: {
       'index': './src/bin/server.ts'
   },
+  target: 'node',
   node: {
     fs: "empty",
     net: 'empty'

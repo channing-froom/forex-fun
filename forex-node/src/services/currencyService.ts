@@ -6,10 +6,17 @@ import axios, { AxiosResponse } from 'axios';
 
 export default class CurrencyService {
 
-    private static apiDomain: string = 'http://api.exchangeratesapi.io';
+    // TODO should be a setting
+    private static apiDomain: string = 'http://api.exchangeratesapi.io'; 
 
     constructor() {}
 
+    /**
+     * Send a HTTP request to get currency data
+     * 
+     * @param uri 
+     * @param queryParams 
+     */
     private static async Get(uri: string, queryParams?: IExchangeQueryParams)
     {
         let url: string =  `${CurrencyService.apiDomain}/${uri}`;
@@ -24,7 +31,7 @@ export default class CurrencyService {
                 return res.data;
             })
             .catch((res) => {
-                throw "hello world"
+                // todo manage errors as http exceptions for controllers
             });
     }
 
@@ -93,10 +100,5 @@ export default class CurrencyService {
      */
     private static CalculateBaseFromExchange(currencyValue: number): number {
         return 1 / currencyValue;
-    }
-
-    
+    }   
 }
-
-
-

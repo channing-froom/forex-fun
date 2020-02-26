@@ -1,8 +1,9 @@
-import * as express from "express";
+import express from "express";
 import * as bodyParser from "body-parser";
 import "reflect-metadata";
 import { useExpressServer } from "routing-controllers";
 import * as path from 'path';
+
 let cors = require('cors');
 
 // Route imports
@@ -16,6 +17,7 @@ var app = express();
 
 app.use(logger('dev'));
 
+// Enable default cors : lack on security
 app.use(cors());
 
 app.use(bodyParser.json());
@@ -24,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set up api controllers and default routes
 useExpressServer(app, {
     routePrefix: "/api/v1",
     // register created express server in routing-controllers
@@ -33,6 +36,7 @@ useExpressServer(app, {
 });
 
 // Base endpoints
+// Express base routing
 app.use('/', indexRouter);
 
 module.exports = app;

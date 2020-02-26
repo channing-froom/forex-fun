@@ -5,6 +5,12 @@ import CurrencyService from '../../services/currencyService';
 export default class CurrencyController {
     constructor() {}
 
+    /**
+     * 
+     * @param base 
+     * @param date 
+     * @param symbols 
+     */
     @Get("/:base/values-on/:date/:symbols")
     async getValueOnDate(
         @Param("base") base: string,
@@ -15,6 +21,11 @@ export default class CurrencyController {
         return {"abc": "dgas"};
     }
 
+    /**
+     * 
+     * @param base 
+     * @param symbols 
+     */
     @Get("/:base/values/:symbols")
     async getValues(
         @Param("base") base: string,
@@ -26,9 +37,7 @@ export default class CurrencyController {
                 symbols
             );
         } catch (e) {
-            console.log('there was a error');
-
-            return {error: "something went wrong"}
+            // TODO manage errors correctly & status codes
         }
     }
 }

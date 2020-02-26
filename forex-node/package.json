@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node -r ts-node/register ./src/bin/server.ts",
+    "start:prod": "node ./dist/index.js ----abort-on-uncaught-exceptions",
     "start:watch": "nodemon",
-    "webpack:local": "npx webpack --config webpack.local.js"
+    "webpack:local": "npx webpack --config webpack.local.js",
+    "webpack:production": "npx webpack --config webpack.production.js"
   },
   "nodemonConfig": {
     "ignore": [
@@ -28,6 +30,8 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "kcors": "^2.2.2",
+    "koa-bodyparser": "^4.2.1",
     "morgan": "~1.9.1",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.8.1-alpha.2"
