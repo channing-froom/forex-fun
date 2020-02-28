@@ -3,12 +3,10 @@ import * as bodyParser from "body-parser";
 import "reflect-metadata";
 import { useExpressServer } from "routing-controllers";
 import * as path from 'path';
-
-let cors = require('cors');
-
-// Route imports
 import indexRouter from './routes/index';
 import CurrencyController from './controllers/api/currencyController';
+
+let cors = require('cors');
 
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
